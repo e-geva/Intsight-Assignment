@@ -1,0 +1,50 @@
+Assignment created by Erez Geva for Intsight
+
+As requested i created a simple program, web crawler that will do the following:
+
+1. run a search as requested
+2. extract wanted data from that search into a list of a class named Book
+3. Flip a page and repete stap 2.
+4. deploy that list into a mySQL database.
+Database constracted from a single table "books" with the columns .
+"name" - book name.
+"author" - author name.
+"date" - publishing date.
+"price"
+"stars" - number of stars the book got.
+"reviews" - number of reviews the book got.
+
+5. the amazon page will reload and the search will run again, the first item will be clicked and added to the cart.
+Clicking the cart and checking if the item added "name" is identical to the one added before
+
+
+Notes:
+
+Since Amazon vary its result page from a list of "div"s and a list of "li" i had to check what type i was getting.
+It changes the way i flip pages and the way i extract the Books list.
+
+Test.py is the main file.
+
+myimports.py is the import file.
+
+dateLocator will look for "span" tags and search them for a month name thus findint the date of the publication.
+
+flipPage.py will look for the ID "pagnNextString" or the text "Next" and will click it to flip to the next page.
+
+insertListToDB.py will connect to a local mySQL server and will iterate through the Books list and insert them to the DB.
+
+iterator.py will iterate through a list of elements and will extract the requested data to a Books list.
+
+listLocator.py will determin the type of list amazon created (DIV or LI) and get a list of elements of the results.
+
+nameLocator.py will extract the name of the book and the name of the author, the first result of searching a.a-link-normal
+will bring the name of the book and the secound one will bring the name of the author.
+
+priceLocator.py will search for a specific "span" and check if it's text has the $ sign.
+
+search.py will simply search for the search bar, enter the key and click the search button.
+
+starsLocator will search for "span" tag and the word "star" thus extracting the number of stars the item got.
+
+
+
